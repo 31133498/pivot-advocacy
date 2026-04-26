@@ -1,0 +1,134 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Pivot Advocacy Brand Colors */
+  --background: #1a0a2e;
+  --foreground: #ffffff;
+  --card: #2a1548;
+  --card-foreground: #ffffff;
+  --popover: #2a1548;
+  --popover-foreground: #ffffff;
+  --primary: #8a23ac;
+  --primary-foreground: #ffffff;
+  --secondary: #177543;
+  --secondary-foreground: #ffffff;
+  --muted: #3d2060;
+  --muted-foreground: #c4b5d1;
+  --accent: #f80407;
+  --accent-foreground: #ffffff;
+  --destructive: #f80407;
+  --destructive-foreground: #ffffff;
+  --border: #4a2875;
+  --input: #3d2060;
+  --ring: #8a23ac;
+  --radius: 0.75rem;
+
+  /* Chart colors */
+  --chart-1: #8a23ac;
+  --chart-2: #177543;
+  --chart-3: #f80407;
+  --chart-4: #c45fd8;
+  --chart-5: #2aad6e;
+}
+
+/* Light theme for specific sections */
+.light-section {
+  --background: #ffffff;
+  --foreground: #1a0a2e;
+  --card: #f8f5fb;
+  --card-foreground: #1a0a2e;
+  --muted: #f0eaf5;
+  --muted-foreground: #5a4670;
+  --border: #e5dced;
+}
+
+@theme inline {
+  --font-sans: 'Montserrat', 'Montserrat Fallback', sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a0a2e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8a23ac;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a035c8;
+}
+
+/* Gradient utilities */
+.gradient-purple {
+  background: linear-gradient(135deg, #1a0a2e 0%, #8a23ac 100%);
+}
+
+.gradient-hero {
+  background: linear-gradient(180deg, #1a0a2e 0%, #2a1548 50%, #1a0a2e 100%);
+}
+
+/* Animation keyframes */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(138, 35, 172, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(138, 35, 172, 0.6); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
