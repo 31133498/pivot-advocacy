@@ -27,12 +27,6 @@ export function HeroSection() {
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 border border-primary/30 text-sm font-medium text-primary-foreground mb-8 animate-fade-in">
-            <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-            Transforming Prevention Education
-          </div>
-
           {/* Main Headline */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground mb-6 leading-tight text-balance">
             Transforming Substance Abuse Prevention Through{" "}
