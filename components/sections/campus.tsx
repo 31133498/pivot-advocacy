@@ -33,9 +33,7 @@ const programComponents = [
 
 export function CampusSection() {
   return (
-    <section className="py-24 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-card/50 via-background to-background" />
+    <section className="py-24 relative overflow-hidden" style={{ backgroundColor: '#2d1b4e' }}>
       
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">

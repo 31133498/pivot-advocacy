@@ -25,20 +25,20 @@ const problems = [
 
 export function ProblemSection() {
   return (
-    <section className="py-24 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/50 to-background" />
-      
+    <section className="py-24 relative overflow-hidden" style={{ backgroundColor: '#ffffff' }}>
+      {/* Dot grid texture */}
+      <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#8a23ac 0.5px, transparent 0.5px)', backgroundSize: '24px 24px', opacity: 0.03 }} />
+
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4" style={{ backgroundColor: '#f3eef8', color: '#8a23ac' }}>
             The Challenge
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 text-balance">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-balance" style={{ color: '#1a0a2e' }}>
             The Realities of Substance Misuse
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-lg leading-relaxed" style={{ color: '#4a4a6a' }}>
             Substance misuse and addiction continue to pose serious public health and social challenges. The impact extends far beyond physical consequences, affecting families, education, relationships, and entire communities.
           </p>
         </div>
@@ -48,19 +48,15 @@ export function ProblemSection() {
           {problems.map((problem, index) => (
             <div
               key={problem.title}
-              className="group relative p-8 rounded-2xl bg-card/50 border border-border/50 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1"
+              className="group relative p-8 rounded-2xl border hover:-translate-y-1 transition-all duration-300"
+              style={{ backgroundColor: '#f3eef8', borderColor: '#8a23ac33' }}
             >
-              {/* Icon */}
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                <problem.icon className="w-7 h-7 text-primary" />
+              <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style={{ backgroundColor: 'rgba(138,35,172,0.1)' }}>
+                <problem.icon className="w-7 h-7" style={{ color: '#8a23ac' }} />
               </div>
-              
-              {/* Content */}
-              <h3 className="text-xl font-semibold text-foreground mb-3">{problem.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{problem.description}</p>
-              
-              {/* Number indicator */}
-              <div className="absolute top-6 right-6 text-6xl font-bold text-muted/20 select-none">
+              <h3 className="text-xl font-semibold mb-3" style={{ color: '#1a0a2e' }}>{problem.title}</h3>
+              <p className="leading-relaxed" style={{ color: '#4a4a6a' }}>{problem.description}</p>
+              <div className="absolute top-6 right-6 text-6xl font-bold select-none" style={{ color: '#8a23ac', opacity: 0.08 }}>
                 {String(index + 1).padStart(2, '0')}
               </div>
             </div>
@@ -69,12 +65,12 @@ export function ProblemSection() {
 
         {/* Closing statement */}
         <div className="max-w-3xl mx-auto mt-16 text-center">
-          <div className="p-8 rounded-2xl bg-gradient-to-r from-primary/10 via-card to-secondary/10 border border-border/50">
-            <p className="text-xl md:text-2xl font-medium text-foreground leading-relaxed">
+          <div className="p-8 rounded-2xl border" style={{ backgroundColor: '#f3eef8', borderColor: '#8a23ac33' }}>
+            <p className="text-xl md:text-2xl font-medium leading-relaxed" style={{ color: '#1a0a2e' }}>
               The challenge is not a lack of information — it is a lack of{" "}
-              <span className="text-primary">immersive</span>,{" "}
-              <span className="text-primary">emotionally engaging</span>, and{" "}
-              <span className="text-primary">psychologically informed</span>{" "}
+              <span style={{ color: '#8a23ac' }}>immersive</span>,{" "}
+              <span style={{ color: '#8a23ac' }}>emotionally engaging</span>, and{" "}
+              <span style={{ color: '#8a23ac' }}>psychologically informed</span>{" "}
               learning tools.
             </p>
           </div>
