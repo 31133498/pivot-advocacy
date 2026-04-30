@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, Users, Gamepad2, MessageCircle, Lightbulb, Palette } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -75,36 +76,17 @@ export function CampusSection() {
           
           {/* Visual */}
           <div className="relative">
-            <div className="relative rounded-3xl overflow-hidden">
-              {/* Main image placeholder */}
-              <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 via-muted to-secondary/20 flex items-center justify-center">
-                <div className="text-center p-8">
-                  {/* Illustration of students in a discussion circle */}
-                  <div className="relative w-64 h-64 mx-auto">
-                    {/* Circle of students */}
-                    {[0, 60, 120, 180, 240, 300].map((angle, i) => (
-                      <div
-                        key={angle}
-                        className="absolute w-12 h-12 rounded-full bg-gradient-to-br from-muted to-card border-2 border-border flex items-center justify-center"
-                        style={{
-                          left: `calc(50% + ${Math.cos((angle * Math.PI) / 180) * 80}px - 24px)`,
-                          top: `calc(50% + ${Math.sin((angle * Math.PI) / 180) * 80}px - 24px)`,
-                        }}
-                      >
-                        <Users className="w-6 h-6 text-muted-foreground" />
-                      </div>
-                    ))}
-                    {/* Center - game board */}
-                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-xl bg-gradient-to-br from-primary/30 to-secondary/30 border border-primary/50 flex items-center justify-center shadow-lg">
-                      <Gamepad2 className="w-10 h-10 text-primary" />
-                    </div>
-                  </div>
-                  <p className="mt-8 text-lg font-medium text-foreground">Interactive Learning Sessions</p>
-                  <p className="text-muted-foreground">Bringing communities together</p>
-                </div>
+            <div className="relative rounded-3xl overflow-hidden group">
+              <div className="aspect-[4/3] relative">
+                <Image
+                  src="/Pivot package back page 1.png"
+                  alt="Students playing Pivot: The Resilience Game"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1a0a2e]/60 to-transparent" />
               </div>
             </div>
-            
             {/* Stats overlay */}
             <div className="absolute -bottom-6 left-6 right-6 p-4 rounded-xl bg-card/90 backdrop-blur border border-border/50 flex justify-around">
               <div className="text-center">

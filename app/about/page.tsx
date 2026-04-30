@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Heart, Lightbulb, Shield, Users, Target, BookOpen } from "lucide-react"
@@ -11,11 +12,10 @@ const values = [
   { icon: BookOpen, title: "Education", description: "We commit to meaningful, experiential learning that goes beyond awareness to behavioral understanding and change." },
 ]
 
-const team = [
-  { name: "Dr. Adaora Nwachukwu", role: "Founder & Lead Researcher", bio: "PhD in Psychology with focus on addiction science and prevention education." },
-  { name: "Emeka Okafor", role: "Program Director", bio: "15+ years in youth development and community engagement programs." },
-  { name: "Fatima Ibrahim", role: "Head of Partnerships", bio: "Expert in building strategic partnerships across NGOs and institutions." },
-  { name: "Chidi Eze", role: "Training & Capacity Lead", bio: "Certified counselor and facilitator trainer with a passion for psycho-education." },
+const secondaryTeam = [
+  { initial: "S", name: "Sanni Shazily", role: "Tech Lead", color: "#8a23ac" },
+  { initial: "M", name: "Mr. Martin Ettu", role: "Strategist & Lead Administrator", color: "#177543" },
+  { initial: "O", name: "Owoade Ismail", role: "Designer", color: "#f80407" },
 ]
 
 export default function AboutPage() {
@@ -37,6 +37,80 @@ export default function AboutPage() {
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Pivot Advocacy is a dedicated substance abuse prevention and psycho-educational initiative committed to transforming how prevention, early intervention, and rehabilitation education are delivered.
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Team */}
+        <section id="team" className="py-24">
+          <div className="container mx-auto px-4 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Meet the Team</h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Passionate professionals dedicated to transforming prevention education
+              </p>
+            </div>
+
+            {/* Founder Hero Card */}
+            <div className="max-w-5xl mx-auto mb-16">
+              <div className="relative rounded-3xl overflow-hidden border border-primary/40 bg-[#1a0a2e] shadow-2xl shadow-primary/20">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10" />
+                <div className="relative z-10 flex flex-col lg:flex-row">
+                  {/* Photo — big */}
+                  <div className="w-full lg:w-1/2 relative">
+                    <div className="relative aspect-[3/4] lg:aspect-auto lg:h-[620px] w-full">
+                      <Image
+                        src="/flyer.jpg"
+                        alt="Dr. Jamiu Ademosu"
+                        fill
+                        className="object-cover object-top"
+                        priority
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#1a0a2e] hidden lg:block" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#1a0a2e] via-transparent to-transparent lg:hidden" />
+                    </div>
+                  </div>
+                  {/* Info */}
+                  <div className="w-full lg:w-1/2 flex flex-col justify-center p-8 md:p-12 lg:p-16">
+                    <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-6 text-white w-fit" style={{ backgroundColor: "#8a23ac" }}>
+                      Founder & Lead
+                    </span>
+                    <h3 className="text-4xl md:text-5xl font-bold text-foreground mb-2">Dr. Jamiu Ademosu</h3>
+                    <p className="text-lg font-medium text-primary mb-1">Ph.D, FIMC</p>
+                    <p className="text-base text-muted-foreground mb-8">Founder & Lead Researcher, Pivot Advocacy</p>
+                    <div className="space-y-4">
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: "#177543" }} />
+                        <p className="text-muted-foreground">Doctor of Philosophy in Applied Mathematics</p>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: "#177543" }} />
+                        <p className="text-muted-foreground">Fellow, Institute of Management Consultants (FIMC)</p>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: "#177543" }} />
+                        <p className="text-muted-foreground">Research-driven psycho-educational innovator and advocate for substance abuse prevention</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Secondary Team */}
+            <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+              {secondaryTeam.map((member) => (
+                <div key={member.name} className="p-6 rounded-2xl bg-background border border-border/50 text-center hover:border-primary/30 transition-colors">
+                  <div
+                    className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center text-white text-2xl font-bold"
+                    style={{ backgroundColor: member.color }}
+                  >
+                    {member.initial}
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-1">{member.name}</h3>
+                  <p className="text-sm" style={{ color: member.color }}>{member.role}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -121,29 +195,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Team */}
-        <section id="team" className="py-24 bg-card/50">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Meet the Team</h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Passionate professionals dedicated to transforming prevention education
-              </p>
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-              {team.map((member) => (
-                <div key={member.name} className="p-6 rounded-2xl bg-background border border-border/50 text-center">
-                  <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-                    <Users className="w-10 h-10 text-primary" />
-                  </div>
-                  <h3 className="font-semibold text-foreground mb-1">{member.name}</h3>
-                  <p className="text-sm text-primary mb-2">{member.role}</p>
-                  <p className="text-sm text-muted-foreground">{member.bio}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+
 
         {/* Powered By */}
         <section className="py-16">

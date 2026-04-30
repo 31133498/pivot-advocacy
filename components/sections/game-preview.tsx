@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, Sparkles, Target, RotateCcw, TrendingUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -53,114 +54,77 @@ export function GamePreviewSection() {
           </p>
         </div>
 
-        {/* Game Visual */}
-        <div className="max-w-5xl mx-auto mb-16">
-          <div className="relative rounded-3xl bg-gradient-to-br from-card via-muted/50 to-card border border-border/50 overflow-hidden p-8 md:p-12">
-            {/* Game board illustration */}
-            <div className="relative aspect-[16/9] rounded-2xl bg-gradient-to-br from-[#1a0a2e] to-[#2a1548] border border-primary/30 overflow-hidden">
-              {/* Stylized game path */}
-              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 800 450" fill="none" preserveAspectRatio="xMidYMid slice">
-                {/* Zone 1 - Red path */}
-                <path
-                  d="M100 350 Q200 350 250 280 Q300 200 350 200"
-                  stroke="#f80407"
-                  strokeWidth="8"
-                  strokeLinecap="round"
-                  fill="none"
-                  opacity="0.6"
+        {/* Two-column: description left, box cover right */}
+        <div className="max-w-5xl mx-auto mb-16 grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+              An immersive, therapeutic, and highly interactive board game designed to model the emotional, psychological, behavioral, and social dynamics of substance misuse, addiction, intervention, and recovery.
+            </p>
+            {/* Three Zones */}
+            <div className="space-y-4">
+              {zones.map((zone) => (
+                <div
+                  key={zone.title}
+                  className={`relative p-5 rounded-2xl border transition-all duration-300 hover:-translate-y-1 ${
+                    zone.color === 'accent' ? 'bg-accent/5 border-accent/30 hover:border-accent/50' :
+                    zone.color === 'primary' ? 'bg-primary/5 border-primary/30 hover:border-primary/50' :
+                    'bg-secondary/5 border-secondary/30 hover:border-secondary/50'
+                  }`}
+                >
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
+                      zone.color === 'accent' ? 'bg-accent/20' :
+                      zone.color === 'primary' ? 'bg-primary/20' :
+                      'bg-secondary/20'
+                    }`}>
+                      <zone.icon className={`w-4 h-4 ${
+                        zone.color === 'accent' ? 'text-accent' :
+                        zone.color === 'primary' ? 'text-primary' :
+                        'text-secondary'
+                      }`} />
+                    </div>
+                    <span className={`text-sm font-bold ${
+                      zone.color === 'accent' ? 'text-accent' :
+                      zone.color === 'primary' ? 'text-primary' :
+                      'text-secondary'
+                    }`}>{zone.title} — {zone.subtitle}</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed pl-11">{zone.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Box cover — tilted card with glow */}
+          <div className="flex items-center justify-center">
+            <div
+              className="relative w-full max-w-sm rounded-2xl overflow-hidden group"
+              style={{ transform: 'rotate(-2deg)', boxShadow: '0 0 60px rgba(138,35,172,0.4)' }}
+            >
+              <div className="relative aspect-square">
+                <Image
+                  src="/Pivot package font page 1.png"
+                  alt="Pivot: The Resilience Game — Box Cover"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                 />
-                {/* Zone 2 - Purple loop */}
-                <path
-                  d="M350 200 Q400 150 450 200 Q500 250 450 300 Q400 350 450 200"
-                  stroke="#8a23ac"
-                  strokeWidth="8"
-                  strokeLinecap="round"
-                  fill="none"
-                  opacity="0.6"
-                />
-                {/* Zone 3 - Green ascent */}
-                <path
-                  d="M450 200 Q500 150 550 120 Q600 90 700 50"
-                  stroke="#177543"
-                  strokeWidth="8"
-                  strokeLinecap="round"
-                  fill="none"
-                  opacity="0.6"
-                />
-                
-                {/* Nodes/stops */}
-                <circle cx="100" cy="350" r="15" fill="#f80407" />
-                <circle cx="250" cy="280" r="12" fill="#f80407" opacity="0.7" />
-                <circle cx="350" cy="200" r="15" fill="#8a23ac" />
-                <circle cx="450" cy="200" r="15" fill="#8a23ac" />
-                <circle cx="550" cy="120" r="12" fill="#177543" opacity="0.7" />
-                <circle cx="700" cy="50" r="18" fill="#177543" />
-                
-                {/* Labels */}
-                <text x="100" y="390" fill="white" fontSize="14" textAnchor="middle" fontWeight="500">START</text>
-                <text x="700" y="90" fill="white" fontSize="14" textAnchor="middle" fontWeight="500">RESILIENCE</text>
-              </svg>
-              
-              {/* Flow diagram overlay */}
-              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-center gap-2 text-xs md:text-sm text-white/80">
-                <span className="px-2 py-1 rounded bg-accent/30">Temptation</span>
-                <ArrowRight className="w-4 h-4" />
-                <span className="px-2 py-1 rounded bg-primary/30">Decision</span>
-                <ArrowRight className="w-4 h-4" />
-                <span className="px-2 py-1 rounded bg-primary/30">Consequence</span>
-                <ArrowRight className="w-4 h-4" />
-                <span className="px-2 py-1 rounded bg-secondary/30">Support</span>
-                <ArrowRight className="w-4 h-4" />
-                <span className="px-2 py-1 rounded bg-secondary/30">Recovery</span>
-                <ArrowRight className="w-4 h-4" />
-                <span className="px-2 py-1 rounded bg-secondary/50 font-semibold">Resilience</span>
               </div>
-            </div>
-            
-            {/* Floating cards */}
-            <div className="absolute -top-4 -right-4 w-24 h-32 rounded-lg bg-gradient-to-br from-accent to-accent/70 shadow-xl transform rotate-12 flex items-center justify-center">
-              <span className="text-white text-xs font-bold text-center px-2">Temptation Card</span>
-            </div>
-            <div className="absolute -bottom-4 -left-4 w-24 h-32 rounded-lg bg-gradient-to-br from-secondary to-secondary/70 shadow-xl transform -rotate-12 flex items-center justify-center">
-              <span className="text-white text-xs font-bold text-center px-2">Resilience Boost</span>
             </div>
           </div>
         </div>
 
-        {/* Three Zones */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
-          {zones.map((zone) => (
-            <div
-              key={zone.title}
-              className={`relative p-6 rounded-2xl border transition-all duration-300 hover:-translate-y-1 ${
-                zone.color === 'accent' ? 'bg-accent/5 border-accent/30 hover:border-accent/50' :
-                zone.color === 'primary' ? 'bg-primary/5 border-primary/30 hover:border-primary/50' :
-                'bg-secondary/5 border-secondary/30 hover:border-secondary/50'
-              }`}
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                  zone.color === 'accent' ? 'bg-accent/20' :
-                  zone.color === 'primary' ? 'bg-primary/20' :
-                  'bg-secondary/20'
-                }`}>
-                  <zone.icon className={`w-5 h-5 ${
-                    zone.color === 'accent' ? 'text-accent' :
-                    zone.color === 'primary' ? 'text-primary' :
-                    'text-secondary'
-                  }`} />
-                </div>
-                <span className={`text-sm font-bold ${
-                  zone.color === 'accent' ? 'text-accent' :
-                  zone.color === 'primary' ? 'text-primary' :
-                  'text-secondary'
-                }`}>Zone {zone.number}</span>
-              </div>
-              <h3 className="text-lg font-semibold text-foreground mb-1">{zone.title}</h3>
-              <p className="text-sm text-muted-foreground mb-3">{zone.subtitle}</p>
-              <p className="text-sm text-muted-foreground leading-relaxed">{zone.description}</p>
-            </div>
-          ))}
+        {/* Full board reveal */}
+        <div className="max-w-6xl mx-auto mb-12 rounded-2xl overflow-hidden group relative">
+          <Image
+            src="/Second (Print).png"
+            alt="The complete Pivot: The Resilience Game™ board"
+            width={1400}
+            height={800}
+            className="w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1a0a2e]/70 to-transparent flex items-end">
+            <p className="text-white/80 text-sm text-center w-full pb-4 tracking-widest uppercase">The complete Pivot: The Resilience Game™ board</p>
+          </div>
         </div>
 
         {/* CTA */}

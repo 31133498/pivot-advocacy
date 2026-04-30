@@ -1,12 +1,22 @@
+import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, Play } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background gradient */}
-      <div className="absolute inset-0 gradient-hero" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
+      {/* Game Board Background */}
+      <div className="absolute inset-0">
+        <Image
+          src="/Second print.png"
+          alt="Pivot Game Board"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(26, 10, 46, 0.85)' }} />
+      </div>
       
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -39,10 +49,10 @@ export function HeroSection() {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
             <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 h-14 text-lg font-semibold group">
-              <Link href="/game">
+              <a href="#game-video">
                 Discover The Game
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </a>
             </Button>
             <Button asChild variant="outline" size="lg" className="border-border/50 bg-transparent hover:bg-muted/50 text-foreground px-8 h-14 text-lg font-semibold group">
               <Link href="/about">

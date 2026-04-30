@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { User, Users, Building2, ArrowRight } from "lucide-react"
 
 const impactLevels = [
@@ -33,6 +34,12 @@ export function ImpactSection() {
     <section className="py-24 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background" />
+      {/* Watermark */}
+      <div className="absolute inset-0 flex items-center justify-center opacity-[0.08] pointer-events-none">
+        <div className="relative w-full h-full">
+          <Image src="/Second (Print).png" alt="" fill className="object-cover" />
+        </div>
+      </div>
       
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}

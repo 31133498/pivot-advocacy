@@ -1,5 +1,6 @@
+import Image from "next/image"
 import Link from "next/link"
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react"
+import { Facebook, MessageCircle, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const footerLinks = {
@@ -24,15 +25,21 @@ const footerLinks = {
 }
 
 const socialLinks = [
-  { icon: Facebook, href: "https://facebook.com/pivotadvocacy", label: "Facebook" },
-  { icon: Twitter, href: "https://twitter.com/pivotadvocacy", label: "Twitter" },
-  { icon: Instagram, href: "https://instagram.com/pivotadvocacy", label: "Instagram" },
-  { icon: Linkedin, href: "https://linkedin.com/company/pivotadvocacy", label: "LinkedIn" },
+  { icon: Facebook, href: "https://www.facebook.com/share/14Xt5WAAxKf/?mibextid=wwXIfr", label: "Facebook" },
+  { icon: MessageCircle, href: "https://chat.whatsapp.com/DckGgSSVLW9JAtbrgjKIFJ?mode=gi_t", label: "WhatsApp" },
+  { icon: Instagram, href: "https://www.instagram.com/pivotadvocacy?igsh=bGU5YjYxbXQxeWs5&utm_source=qr", label: "Instagram" },
+  { icon: Linkedin, href: "https://www.linkedin.com/company/pivot-advocacy/", label: "LinkedIn" },
 ]
 
 export function Footer() {
   return (
-    <footer className="bg-[#0d0518] border-t border-border/30">
+    <footer className="relative bg-[#0d0518] border-t border-border/30 overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0">
+        <Image src="/Pivot Package Side 1.png" alt="" fill className="object-cover object-center" />
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(13,5,24,0.92)' }} />
+      </div>
+      <div className="relative z-10">
       {/* Newsletter Section */}
       <div className="border-b border-border/30">
         <div className="container mx-auto px-4 lg:px-8 py-12">
@@ -88,6 +95,17 @@ export function Footer() {
             <p className="text-muted-foreground text-sm mb-6 max-w-sm">
               Transforming substance abuse prevention through immersive, psycho-educational innovation that builds resilience and empowers communities.
             </p>
+            {/* Product visual */}
+            <div className="mb-6">
+              <div className="relative w-20 h-20 rounded-xl overflow-hidden group" style={{ boxShadow: '0 0 20px rgba(138,35,172,0.3)' }}>
+                <Image
+                  src="/Pivot package font page 1.png"
+                  alt="Pivot: The Resilience Game"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+              </div>
+            </div>
             <div className="flex gap-3">
               {socialLinks.map((social) => (
                 <a
@@ -180,6 +198,7 @@ export function Footer() {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </footer>
   )

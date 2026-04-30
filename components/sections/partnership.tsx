@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, Handshake, Building, Heart, GraduationCap } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -44,6 +45,31 @@ export function PartnershipSection() {
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Partner with Pivot Advocacy to transform substance abuse prevention. Together, we can create lasting change through immersive education and community engagement.
             </p>
+          </div>
+
+          {/* Photo Strip */}
+          <div className="grid grid-cols-3 gap-3 mb-12 rounded-2xl overflow-hidden">
+            {["0%", "33%", "66%"].map((offset, i) => (
+              <div key={i} className="relative aspect-video overflow-hidden rounded-xl group">
+                <Image
+                  src="/Pivot package back page 1.png"
+                  alt="Pivot game in action"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                  style={{ objectPosition: `${offset} center` }}
+                />
+                <div className="absolute inset-0 bg-[#1a0a2e]/40" />
+              </div>
+            ))}
+          </div>
+
+          {/* Deployment text */}
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            {["Schools", "Youth Programs", "Families", "Counselors", "Community Organizations", "NGOs"].map((item) => (
+              <span key={item} className="px-4 py-2 rounded-full border text-sm font-medium text-foreground" style={{ borderColor: "#8a23ac", backgroundColor: "rgba(138,35,172,0.1)" }}>
+                {item}
+              </span>
+            ))}
           </div>
 
           {/* Partner Types */}
