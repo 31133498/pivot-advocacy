@@ -41,7 +41,7 @@ export function ImpactSection() {
       {/* Dot grid texture */}
       <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#8a23ac 0.5px, transparent 0.5px)', backgroundSize: '24px 24px', opacity: 0.03 }} />
       {/* Watermark */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ opacity: 0.04 }}>
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ opacity: 0.12 }}>
         <div className="relative w-full h-full">
           <Image src="/Second (Print).png" alt="" fill className="object-cover" />
         </div>
